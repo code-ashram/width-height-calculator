@@ -4,3 +4,8 @@ html, body {
   padding: 0;
   margin: 0;
 }
+
+:local(.btn) {
+  display: block;
+  margin: 0 auto;
+}

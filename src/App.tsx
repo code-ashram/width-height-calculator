@@ -1,11 +1,22 @@
+import { useState } from 'react'
+
 import Calculator from './Components/Calculator'
 
-import './App.module.css'
+import styles from './App.module.css'
 
 const App = () => {
+  const [isShow, setIsShow] = useState(true)
+
+  const handleShowOutput = () => {
+    setIsShow(!isShow)
+  }
 
   return (
-    <Calculator />
+    <>
+      <button className={styles.btn} onClick={handleShowOutput}>Show/hide</button>
+      {isShow && <Calculator />}
+    </>
+
   )
 }
 

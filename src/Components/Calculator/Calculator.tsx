@@ -6,15 +6,16 @@ const Calculator: FC = () => {
   const [width, setWidth] = useState<number>(0)
   const [height, setHeight] = useState<number>(0)
 
-  const handleChangeSize = () => {
+  const onResize = () => {
     setWidth(window.innerWidth)
     setHeight(window.innerHeight)
   }
 
   useEffect(() => {
-    window.addEventListener('resize', handleChangeSize)
+    window.addEventListener('resize', onResize)
 
-  }, [width, height])
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   return <div className={styles.calculator}>
     <output className={styles.output}>width: {width} height: {height}</output>
